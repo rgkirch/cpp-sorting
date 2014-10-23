@@ -1,4 +1,3 @@
-// Richard Kirchofer
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
@@ -16,6 +15,17 @@ using namespace std;
 //     cout << endl;
 // }
 
+// return TRUE if the items are sorted in increasing order and FALSE otherwise
+template <typename T>
+bool isSorted(T* items, const int& size){
+    for (int i = 1; i < size; i++){
+        if (items[i - 1] > items[i]){
+            return false;
+        } // end if
+    } // end for
+    return true;
+} // end isSorted
+
 int main(){
     int* nums;
 
@@ -23,7 +33,7 @@ int main(){
 
 
     // set to 10 000
-    int sizeMagnifier = 10000;
+    int sizeMagnifier = 1000;
     long timeStart = 0;
     long timeEnd = 0;
     long timeElapsed = 0;
@@ -127,7 +137,7 @@ int main(){
                         break;
                     }
                     cout << runStr << "\t";
-                    for (int size = 1; size < 100; size++){
+                    for (int size = 1; size < 11; size++){
                         // make the array
                         switch(arrayGen){
                             case 0: nums = generateIncreasingArray(size*sizeMagnifier);
@@ -216,4 +226,3 @@ int main(){
 }
 
 // here there be air
-
